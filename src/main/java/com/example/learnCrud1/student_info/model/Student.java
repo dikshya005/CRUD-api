@@ -5,16 +5,24 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
     @Column(nullable = false)
-    String name;
+    private String name;
     @Column(nullable = false)
-    String address;
+    private String address;
+    @Column
+    private String password;
+    @Column(nullable = false)
+    private boolean deleted = false;
+    @Column
+    private LocalDateTime createdAt;
 
 }
